@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LoginAndRegistration</string>
+    <string name="birthday">birth</string>
+</resources>
