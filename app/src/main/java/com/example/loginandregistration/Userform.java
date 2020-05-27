@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 public class Userform extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button _btnReg;
@@ -163,22 +164,22 @@ public class Userform extends AppCompatActivity implements AdapterView.OnItemSel
                 String Height=_txtHeight.getText().toString();
                 String address=_txtAdd.getText().toString();
                 String email=_txtEmail.getText().toString();
-                String username=_txtUser.getText().toString();
-                String password=_txtPass.getText().toString();
+//                String username=_txtUser.getText().toString();
+//                String password=_txtPass.getText().toString();
                 String type="reg";
 
-                if (name.matches("") || address.matches("") || email.matches("") ||
-                        username.matches("") || password.matches("")) {
+                if (name.matches("") || address.matches("") || email.matches("")) {
                     Toast.makeText(Userform.this, "Do not keep Fileds Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 BackgroundTask backgroundTask= new BackgroundTask(getApplicationContext());
                 backgroundTask.execute(type, name, MName,LName, address,gender,Caste,SubCaste,OtherCaste
-                        ,Dob,MarStatus,Qualification,Phone,Expectation,Height,email, username, password);
+                        ,Dob,MarStatus,Qualification,Phone,Expectation,Height,email);
+                Toast.makeText(Userform.this, SubCaste, Toast.LENGTH_SHORT).show();
             }
         });
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 
     }

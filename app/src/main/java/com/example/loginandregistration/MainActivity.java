@@ -1,10 +1,19 @@
 package com.example.loginandregistration;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     Button _btnReg, _btnLogin;
@@ -21,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 //        _txtEmail=(EditText)findViewById(R.id.txtEmail);
 //        _txtUser=(EditText)findViewById(R.id.txtUser);
 //        _txtPass=(EditText)findViewById(R.id.txtPass);
+
         setTitle("Beldar Vivah");
         _btnReg.setOnClickListener(new View.OnClickListener() {
             @Override

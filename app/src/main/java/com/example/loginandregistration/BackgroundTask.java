@@ -27,6 +27,8 @@ public class BackgroundTask extends AsyncTask<String, String, String> {
         String type=strings[0];
         String loginURL="http://mat.sandeepraskar.com/login.php";
         String regURL="http://mat.sandeepraskar.com/reg.php";
+//        String loginURL="http://192.168.1.105/login.php";
+//        String regURL="http://192.168.1.105/reg.php";
         if(type.equals("reg")){
             String name= strings[1];
             String MName=strings[2];
@@ -43,8 +45,9 @@ public class BackgroundTask extends AsyncTask<String, String, String> {
             String Expectation=strings[13];
             String Height=strings[14];
             String email= strings[15];
-            String username=strings[16];
-            String password=strings[17];
+//            String username=strings[16];
+//            String password=strings[17];
+            System.out.println(Caste);
             try{
                 URL url= new URL(regURL);
                 try{
@@ -69,9 +72,9 @@ public class BackgroundTask extends AsyncTask<String, String, String> {
                             "&"+URLEncoder.encode("mobile", "UTF-8")+"="+URLEncoder.encode(Phone, "UTF-8")+
                             "&"+URLEncoder.encode("expectation", "UTF-8")+"="+URLEncoder.encode(Expectation, "UTF-8")+
                             "&"+URLEncoder.encode("height", "UTF-8")+"="+URLEncoder.encode(Height, "UTF-8")+
-                            "&"+URLEncoder.encode("email", "UTF-8")+"="+URLEncoder.encode(email, "UTF-8")+
-                            "&"+URLEncoder.encode("username", "UTF-8")+"="+URLEncoder.encode(username, "UTF-8")+
-                            "&"+URLEncoder.encode("password", "UTF-8")+"="+URLEncoder.encode(password, "UTF-8");
+                            "&"+URLEncoder.encode("email", "UTF-8")+"="+URLEncoder.encode(email, "UTF-8");
+//                            "&"+URLEncoder.encode("username", "UTF-8")+"="+URLEncoder.encode(username, "UTF-8")+
+//                            "&"+URLEncoder.encode("password", "UTF-8")+"="+URLEncoder.encode(password, "UTF-8");
                     bufferedWriter.write(insert_data);
                     bufferedWriter.flush();
                     bufferedWriter.close();
@@ -83,7 +86,6 @@ public class BackgroundTask extends AsyncTask<String, String, String> {
                     StringBuilder stringBuilder= new StringBuilder();
                     while ((line=bufferedReader.readLine())!=null){
                         stringBuilder.append(line).append("\n");
-
                     }
                     result=stringBuilder.toString();
                     bufferedReader.close();
