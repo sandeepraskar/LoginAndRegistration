@@ -168,7 +168,7 @@
                 android:hint="Other caste if any"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/datePicker1"
+                app:layout_constraintBottom_toTopOf="@+id/Dt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -178,20 +178,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginBottom="22dp"
+                android:layout_marginBottom="10dp"
                 android:inputType="text"
                 android:text="Date of Birth:"
                 android:textSize="20dp"/>
 
-<!--            <Button-->
-<!--                android:id="@+id/button1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/editText1"-->
-<!--                android:layout_marginLeft="100dp"-->
-<!--                android:text="Get Date" />-->
-
-            <EditText
+            <TextView
                 android:id="@+id/txtDob"
                 android:layout_width="349dp"
                 android:layout_height="wrap_content"
@@ -199,27 +191,47 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="22dp"
                 android:ems="10"
-                android:hint="Date of Birth"
+                android:hint="Select date"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/txtAdd"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <EditText
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="10dp"
+                android:text="Marital Status:"
+                android:textSize="20dp"/>
+
+            <Spinner
                 android:id="@+id/txtMarStatus"
-                android:layout_width="349dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="22dp"
-                android:ems="10"
-                android:hint="Marital Status"
-                android:inputType="textPersonName"
-                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/txtAdd"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
+
+<!--            <EditText-->
+<!--                android:id="@+id/txtMarStatus"-->
+<!--                android:layout_width="349dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginLeft="16dp"-->
+<!--                android:layout_marginBottom="22dp"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Marital Status"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:textSize="18sp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/txtAdd"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
             <EditText
                 android:id="@+id/txtAdd"
@@ -339,6 +351,25 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+            <!--            <Button-->
+<!--                android:id="@+id/btnLogin"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginLeft="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginRight="16dp"-->
+<!--                android:text="Login"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/btnReg"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/btnReg" />-->
+
+
+
 
 
         </LinearLayout>
