@@ -26,9 +26,9 @@ import java.util.List;
 public class Userform extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button _btnReg;
     EditText _txtName, _txtMName, _txtLName,_txtCaste,
-            _txtOther,_txtDob,_txtMarStatus,_txtQualification,_txtPhone,_txtExpect,_txtHeight,
+            _txtOther,_txtDob,_txtQualification,_txtPhone,_txtExpect,_txtHeight,
             _txtAdd, _txtEmail, _txtUser, _txtPass;
-    Spinner _spinnerSubCaste;
+    Spinner _spinnerSubCaste,_txtMarStatus;
     private TextView mDisplayDate;
     private static final String TAG = "Userform";
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -46,7 +46,7 @@ public class Userform extends AppCompatActivity implements AdapterView.OnItemSel
         _spinnerSubCaste=(Spinner) findViewById(R.id.spinnerSubCaste);
         _txtOther=(EditText)findViewById(R.id.txtOther);
 //        _txtDob=(EditText)findViewById(R.id.txtDob);
-        _txtMarStatus=(EditText)findViewById(R.id.txtMarStatus);
+        _txtMarStatus=(Spinner)findViewById(R.id.txtMarStatus);
         _txtQualification=(EditText)findViewById(R.id.txtQualification);
         _txtPhone=(EditText)findViewById(R.id.txtPhone);
         _txtExpect=(EditText)findViewById(R.id.txtExpect);
@@ -55,27 +55,64 @@ public class Userform extends AppCompatActivity implements AdapterView.OnItemSel
         _txtUser=(EditText)findViewById(R.id.txtUser);
         _txtPass=(EditText)findViewById(R.id.txtPass);
         _txtAdd=(EditText) findViewById(R.id.txtAdd);
+        mDisplayDate = (TextView) findViewById(R.id.txtDob);
+
+        _txtMarStatus.setOnItemSelectedListener(this);
+        List<String> MStatus = new ArrayList<String>();
+        MStatus.add("Select");
+        MStatus.add("Single");
+        MStatus.add("Widowed");
+        MStatus.add("Divorced");
+        MStatus.add("Separated");
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapters1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, MStatus);
+        // Drop down layout style - list view with radio button
+        dataAdapters1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        _txtMarStatus.setAdapter(dataAdapters1);
 
 
-        Spinner spinSubCaste = (Spinner) findViewById(R.id.spinnerSubCaste);
+        //Spinner spinSubCaste = (Spinner) findViewById(R.id.spinnerSubCaste);
         // Spinner click listener
-        spinSubCaste.setOnItemSelectedListener(this);
+        _spinnerSubCaste.setOnItemSelectedListener(this);
         // Spinner Drop down elements
         List<String> subcategories = new ArrayList<String>();
-        subcategories.add("Automobile");
-        subcategories.add("Business Services");
-        subcategories.add("Computers");
-        subcategories.add("Education");
-        subcategories.add("Personal");
-        subcategories.add("Travel");
+        subcategories.add("Select Subcaste");
+        subcategories.add("zcz");
+        subcategories.add("fg");
+        subcategories.add("गुंडली");
+        subcategories.add("गुलायन");
+        subcategories.add("कुडावला");
+        subcategories.add("कल्यान");
+        subcategories.add("कान्हेरे");
+        subcategories.add("कारले");
+        subcategories.add("तालन");
+        subcategories.add("चादावत");
+        subcategories.add("तोरले");
+        subcategories.add("ब्यावात");
+        subcategories.add("डाल्डरे");
+        subcategories.add("साल्डरे");
+        subcategories.add("खेडरे");
+        subcategories.add("नौथा");
+        subcategories.add("नाल्डरे");
+        subcategories.add("न्यावत");
+        subcategories.add("हांसू");
+        subcategories.add("हडगल");
+        subcategories.add("हरावत");
+        subcategories.add("मालावत");
+        subcategories.add("बावरु");
+        subcategories.add("सोलंकी");
+        subcategories.add("भोगर");
+        subcategories.add("इत्यादी");
+
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapters = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, subcategories);
         // Drop down layout style - list view with radio button
         dataAdapters.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // attaching data adapter to spinner
-        spinSubCaste.setAdapter(dataAdapters);
+        _spinnerSubCaste.setAdapter(dataAdapters);
 
-        mDisplayDate = (TextView) findViewById(R.id.txtDob);
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +140,7 @@ public class Userform extends AppCompatActivity implements AdapterView.OnItemSel
             }
         };
 
+
         setTitle("New User Registration");
         _btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +154,9 @@ public class Userform extends AppCompatActivity implements AdapterView.OnItemSel
                 String Caste= _txtCaste.getText().toString();
                 String SubCaste= (String) _spinnerSubCaste.getSelectedItem();
                 String OtherCaste=_txtOther.getText().toString();
-                String Dob=_txtDob.getText().toString();
-                String MarStatus=_txtMarStatus.getText().toString();
+                String Dob=mDisplayDate.getText().toString();
+                String MarStatus= (String) _txtMarStatus.getSelectedItem();
+                //String MarStatus=_txtMarStatus.getText().toString();
                 String Qualification=_txtQualification.getText().toString();
                 String Phone=_txtPhone.getText().toString();
                 String Expectation=_txtExpect.getText().toString();
@@ -149,7 +188,7 @@ public class Userform extends AppCompatActivity implements AdapterView.OnItemSel
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
     }
 
     @Override
